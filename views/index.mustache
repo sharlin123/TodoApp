@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>TODO WEB APP</title>
+</head>
+
+<body bgcolor="yellow" align="center">
+	
+<h1 >THIS IS MY TODO LIST</h1>
+<h2><u>Stuff I need to do .</u></h2>
+<form action="/todos" method="post">
+	<input type="text" name="description">
+	<button type="submit">ADD TASK</button>
+</form>
+<ul>
+	{{#todos}}
+	<li><form action="/todos/{{_id}}/completed" method="post">{{description}} - {{done}} 
+		<button type="submit">Done</button>
+	</form>
+
+	</li>
+	{{/todos}}
+
+
+</ul>
+
+<h2><u>Done</u></h2>
+
+<ul>
+	{{#doneTodos}}
+<li><form action="/todos/{{_id}}/completed" method="post">{{description}} - {{done}} 
+		<button type="submit">Whoops!!!</button>
+	</form>
+
+	</li>
+{{/doneTodos}}
+
+</ul>
+
+</body>
+
+</html>
